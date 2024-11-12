@@ -1,8 +1,23 @@
 <div>
   <ul>
-    <li *ngFor="let endpoint of service.list">
+    <li *ngFor="let endpoint of endpointService.list">
       {{ endpoint.name }}
       {{ endpoint.url }}
+      <div *ngIf="endpoint.tokens.length > 0">
+        <h3>Tokens</h3>
+        <ul>
+          <li *ngFor="let token of endpoint.tokens">
+            {{ token.symbol }}
+            <button
+              (click)="
+                endpointService.deleteEndpointToken(endpoint.id, token.symbol)
+              "
+            >
+              Delete
+            </button>
+          </li>
+        </ul>
+      </div>
     </li>
   </ul>
 </div>

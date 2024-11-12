@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EndpointManagerService } from '../shared/endpoint-manager.service';
 
 @Component({
@@ -7,8 +7,8 @@ import { EndpointManagerService } from '../shared/endpoint-manager.service';
   styleUrls: ['./endpoint.component.css'],
 })
 export class EndpointComponent {
-  constructor(public service: EndpointManagerService) {}
+  endpointService = inject(EndpointManagerService);
   ngOnInit(): void {
-    this.service.refreshList();
+    this.endpointService.refreshList();
   }
 }
