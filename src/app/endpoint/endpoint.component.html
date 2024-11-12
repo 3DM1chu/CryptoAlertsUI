@@ -3,14 +3,14 @@
     <li *ngFor="let endpoint of endpointService.list">
       {{ endpoint.name }}
       {{ endpoint.url }}
-      <div *ngIf="endpoint.tokens.length > 0">
-        <h3>Tokens</h3>
+      <div *ngIf="endpoint.assets.length > 0">
+        <h3>Assets</h3>
         <ul>
-          <li *ngFor="let token of endpoint.tokens">
-            {{ token.symbol }}
+          <li *ngFor="let asset of endpoint.assets">
+            {{ asset.symbol }}
             <button
               (click)="
-                endpointService.deleteEndpointToken(endpoint.id, token.symbol)
+                endpointService.deleteEndpointAsset(endpoint.id, asset.symbol)
               "
             >
               Delete

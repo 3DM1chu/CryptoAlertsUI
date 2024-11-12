@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Endpoint } from './models/endpoint.model';
-import { Token } from './models/token.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +23,9 @@ export class EndpointManagerService {
     });
   }
 
-  deleteEndpointToken(id: number, token_symbol: string) {
+  deleteEndpointAsset(id: number, asset_symbol: string) {
     this.http
-      .delete(this.url + '/endpoints/' + id + '/token/' + token_symbol)
+      .delete(this.url + '/endpoints/' + id + '/asset/' + asset_symbol)
       .subscribe(() => {
         this.refreshList();
       });

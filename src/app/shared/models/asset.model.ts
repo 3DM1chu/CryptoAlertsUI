@@ -1,6 +1,6 @@
 import { PriceRecord } from './pricerecord.model';
 
-export class Token {
+export class Asset {
   id: number = 0;
   symbol: string = '';
   priceRecords: PriceRecord[] = [];
